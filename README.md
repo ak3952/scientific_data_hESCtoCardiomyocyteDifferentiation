@@ -1,5 +1,38 @@
 This repository contains code associated with the following study:
-Temporal multiomics gene expression data across human embryonic stem cell derived cardiomyocyte differentiation
-Abdurrahman Keskin, Hani J. Shayya, Dario Sirabella, Achchhe Patel, Barbara Corneo & Marko Jovanovic
+
+**Temporal multiomics gene expression data across human embryonic stem cell derived cardiomyocyte differentiation**
+
+Abdurrahman Keskin<sup>1</sup>, Hani J. Shayya<sup>2</sup>, Dario Sirabella<sup>3</sup>, Achchhe Patel<sup>3</sup>, Barbara Corneo<sup>3</sup> & Marko Jovanovic<sup>1</sup>
+
+<sup>1</sup>Department of Biological Sciences, Columbia University, New York, NY 10027, USA 
+
+<sup>2</sup>Mortimer B. Zuckerman Mind, Brain and Behavior Institute, Columbia University, New York, NY 10027, USA 
+
+<sup>3</sup>Columbia Stem Cell Initiative, Stem Cell Core, Columbia University Irving Medical Center, New York, NY 10032, USA
+
+**Data Availability:**
+
+RNA-seq: NCBI GEO: GSE274620
+
+Ribo-seq: NCBI GEO: GSE274622
+
+**Contents:**
+
+***Create_hg38_gtf.py***: Creates custom GTF/STAR indices used in the study
+
+***Transcript_to_gene_mapping.R***: Maps transcript IDs to gene names Using Ensembl database
+
+***Read_Processing_and_Alignment.sh***: Aligns RNA-seq and Ribo-seq Reads to the Genome Using STAR
+
+***featurecounts_1_4.py***: Performs read counting of the RNA-seq and Ribo-seq data
+
+**Note: All scripts were written by Hani J. Shayya**
+
+
+
+
+
+
+
 
 

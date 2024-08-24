@@ -18,11 +18,11 @@ Ribo-seq: NCBI GEO: GSE274622
 
 **Contents:**
 
-***Create_hg38_gtf.py***: Creates custom GTF/STAR indices used in the study
+***Create_hg38_gtf.py***: Creates custom GTF/STAR indices used in the study  
 
-***Transcript_to_gene_mapping.R***: Maps transcript IDs to gene names Using Ensembl database
+***Transcript_to_gene_mapping.R***: Maps transcript IDs to gene names using Ensembl database
 
-***Read_Processing_and_Alignment.sh***: Aligns RNA-seq and Ribo-seq Reads to the Genome Using STAR
+***Read_Processing_and_Alignment.sh***: Aligns RNA-seq and Ribo-seq reads to the genome using STAR
 
 ***featurecounts_1_4.py***: Performs read counting of the RNA-seq and Ribo-seq data
 

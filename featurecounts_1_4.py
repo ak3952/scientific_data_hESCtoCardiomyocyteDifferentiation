@@ -21,7 +21,6 @@ import argparse
 ################################
 ######  Define Functions  ######
 ################################
-#These functions are copied from WHoleOE_uORFquant_script_12_9.py as I am going to write some RNA-seq functions here and I want to be able to just import all of the analysis functions from one place
 
 def meta_roi(segmentchain_list):
     """An old function that I wrote and have adopted here. Takes a list of segment chains, breaks them apart into constituent genomic segments, and throws them back together into a segment chain representing a meta-window. 
@@ -356,18 +355,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-#To-Do
-#(1) Lots of testing!!! 
-#(2) Build in the recursive search into feature counter. Should be able to copy function definition and then just add as additional option to if statements. 
-#   (a) Build the family function. 
-#       (i) Update variables to get rid of the 'transcript' notation you have been using- this is confusing. 
-#       (ii) Figure out what attribute is being called out of the hash in the .get_overlapping_features method. Need this to be gene name or something identifiable
-#   (b) Adjust feature_counter to appropriately pass arguements to the family function 
-#   (c) Adjust feature_counter output to use the output of hte family function to add the final columns (family id, family size).
-# See if any of this runs from command line
-
-#This is broken. To do! 
 
 
 #When we get this working

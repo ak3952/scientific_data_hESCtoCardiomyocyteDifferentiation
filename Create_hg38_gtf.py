@@ -4,25 +4,15 @@ from twobitreader import TwoBitFile
 import dill
 import re
 
+# Import necessary modules
 tx = list(BED_Reader("hg38_gencode_v32.bed",return_type=Transcript))
 hg38 = TwoBitFile("/seq/hg38/hg38.2bit")
 
-#Filtering criteria: see "Ectodorm_Diff_Annotation.py" and /media/storageA/hani/Apo_LUTI_Project/RNA_Ectoderm_1_2_pairedend/RNA_Ectoderm_1_2_pairedend_working.R 
-coding_tx = [i for i in tx if i.cds_start is not None and i.chrom in hg38.keys()] #has cds, localized
-#108031 transcripts
+# Filtering criteria: keep coding transcripts localized to chromosomes
+coding_tx = [i for i in tx if i.cds_start is not None and i.chrom in hg38.keys()]  # Has CDS, localized
+# 108031 transcripts
 
-#For consistency with Salmon, REMOVE DUPLICATE transcripts. 
-#There are 4063 of these, see /media/storageA/hani/alignment/hg38_annotations/hg38_genocode_v32_SalmonIndex/duplicate_clusters.tsv
-salmon_ls = []
-with open('/media/storageA/hani/Apo_LUTI_Project/Ectoderm_1_initial/SalmonOut_2/quant.sf','r') as fin:
-    for line in fin:
-        salmon_ls.append(line.split('\t')[0])
-
-coding_tx = [i for i in coding_tx if i.attr['ID'] in salmon_ls] 
-#104041 tx. 
-len(set([i.attr['ID'] for i in coding_tx])) #103968 entries = what salmon gives as output. 
-
-#Need to remove Tx's that are on unlocalized contigs for STAR. It freaks out trying to assemble these
+#Need to remove Tx's that are on unlocalized contigs for STAR.
 coding_tx = [i for i in coding_tx if re.search('^chr[0-9XY]+$',i.chrom) is not None] #100171 tx now
 len(set([i.attr['ID'] for i in coding_tx])) #still 73 duplicate tx's. Usually X/Y
 
